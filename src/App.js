@@ -1,24 +1,53 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Header from './components/Header'
+import Footer from './components/Footer';
+import Producto from './components/producto';
+import Carrito from './components/carrito';
+import { Fragment, useState } from 'react';
 
 function App() {
+  //Hook para la lista de productos
+  
+   const [articulos, guardarProductos] = useState([
+    {id:0, nombre:'Purina cat chow 1kg', precio:1800},
+    {id:1, nombre:'Piedritas', precio:1200},
+    {id:2, nombre:'Cama', precio:2000},
+    {id:3, nombre:'Exelent 7kg', precio:8000}
+  ])
+
+  //Hook para la lista carrito(articulos comprados)
+  const [carrito, agregarProducto] = useState([])
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Header
+        title = 'Carrito de compras'
+      />
+      <div>
+          Lista de productos
+      </div>
+      
+      {
+        articulos.map(
+          articulo => (
+            <Producto
+              articulo={articulo}
+              key={articulo.id}
+              articulos= {articulos}
+              carrito ={carrito}
+              agregarProducto = {agregarProducto} />
+          )
+        )
+      }
+      <Carrito
+        carrito = {carrito}
+        />
+      <Footer/>
+
+    </Fragment>
   );
 }
 
