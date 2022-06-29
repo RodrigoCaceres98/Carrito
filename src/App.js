@@ -26,25 +26,26 @@ function App() {
       <Header
         title = 'Carrito de compras'
       />
-      <div>
-          Lista de productos
-      </div>
-      
-      {
-        articulos.map(
-          articulo => (
-            <Producto
-              articulo={articulo}
-              key={articulo.id}
-              articulos= {articulos}
-              carrito ={carrito}
-              agregarProducto = {agregarProducto} />
-          )
-        )
-      }
+      <div className='lista'>
+          <div>
+            <h3> Lista de productos</h3>
+            {
+              articulos.map(
+                articulo => (
+                  <Producto
+                    articulo={articulo}
+                    key={articulo.id}
+                   articulos= {articulos}
+                   carrito ={carrito}
+                   agregarProducto = {agregarProducto} />
+                )
+              )
+            }
+          </div>
       <Carrito
-        carrito = {carrito}
+        carrito = {carrito} 
         />
+      </div>
       <Footer/>
 
     </Fragment>

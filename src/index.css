@@ -1,0 +1,18 @@
+.producto{
+    width: 250px;
+    height: 130px;
+    background-color:dimgray;
+}
+#comprar{
+    width: 70px ;
+    margin-left: 35%;
+}
+.lista{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 300px;
+}
+#titleCarrito{
+    text-align:  center;
+}

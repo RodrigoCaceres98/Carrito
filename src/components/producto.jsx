@@ -1,5 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
+import '../index.css'
 
 const Producto = ({articulo, articulos, carrito, agregarProducto}) => {
     
@@ -8,19 +9,20 @@ const Producto = ({articulo, articulos, carrito, agregarProducto}) => {
     
     //funcion para agregar productos al carrito
     const seleccionarProducto =(id) =>{
-        const articulo = articulos.filter(articulo => articulo.id === id)[0]
-                
-        agregarProducto([...carrito, articulo])
-        console.log(articulo)
-                        
-    }   
+        const articulo = articulos.filter(articulo => articulo.id === id)
+        agregarProducto([...carrito, articulo])   
+        console.log(articulo)  
+    };
+     
 
     return ( 
         <Fragment>
-            <div>
-                ID: { id} | Nombre: { nombre} | Precio: {precio}
+            <div className="producto">
+                <p>ID: {id}</p>
+                <p>Nombre: { nombre}</p>
+                <p>Precio: {precio}</p>
                 <button
-                    type="button"
+                    id="comprar"
                     onClick={ () => seleccionarProducto(id)}
                     >Comprar</button>
                 
